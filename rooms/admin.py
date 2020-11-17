@@ -64,7 +64,9 @@ class RoomAdmin(admin.ModelAdmin):
     )
 
     list_filter = (
-        "instant_book", "city", "country"
+        "instant_book",
+        "city",
+        "country",
     )
 
     list_filter = (
