@@ -37,7 +37,7 @@ class Facility(AbstractItem):
     """ Facility Model Definition """
 
     class Meta:
-        verbose_name_plural = "Facilites"
+        verbose_name_plural = "Facilities"
 
 
 class HouseRule(AbstractItem):
@@ -70,7 +70,7 @@ class Room(core_models.TimeStampedModel):
     city = models.CharField(max_length=80)
     price = models.IntegerField()
     address = models.CharField(max_length=140)
-    guests = models.IntegerField()
+    guests = models.IntegerField(help_text="How many people will be staying?")
     beds = models.IntegerField()
     bedrooms = models.IntegerField()
     baths = models.IntegerField()
@@ -101,5 +101,5 @@ class Room(core_models.TimeStampedModel):
         if len(all_reviews) > 0:
             for review in all_reviews:
                 all_ratings += review.rating_average()
-            return all_ratings / len(all_reviews)
+            return round(all_ratings / len(all_reviews))
         return 0
